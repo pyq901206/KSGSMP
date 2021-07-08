@@ -1,0 +1,3 @@
+cd ../../../build/linux-v2.6-arm9-uclibc;
+make clean; make;
+cd -

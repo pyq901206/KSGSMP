@@ -1,0 +1,34 @@
+all:
+	$(MAKE) -C DeviceInfo all
+	$(MAKE) -C HandleManage all	
+	$(MAKE) -C UsrManage all
+	$(MAKE) -C DeviceManage all
+	$(MAKE) -C PublickKey all
+	$(MAKE) -C TimeManage all
+	$(MAKE) -C MySql all	
+	$(MAKE) -C MessageManage all
+	$(MAKE) -C SysManage all
+	$(MAKE) -C VehicleDataAnalysis all
+	$(MAKE) -C HumanDataAnalysis all
+	$(MAKE) -C FuelQuantityAnalysis all
+	$(MAKE) -C AlarmManage all
+	$(MAKE) -C MediaQueue all
+	$(MAKE) -C HkSdkManage all
+	$(MAKE) -C AttendanceManage all
+clean:
+	$(MAKE) -C DeviceInfo clean	
+	$(MAKE) -C HandleManage clean	
+	$(MAKE) -C UsrManage clean
+	$(MAKE) -C DeviceManage clean
+	$(MAKE) -C PublickKey clean	
+	$(MAKE) -C TimeManage clean
+	$(MAKE) -C MySql clean
+	$(MAKE) -C MessageManage clean
+	$(MAKE) -C SysManage clean
+	$(MAKE) -C VehicleDataAnalysis clean
+	$(MAKE) -C HumanDataAnalysis clean
+	$(MAKE) -C FuelQuantityAnalysis clean
+	$(MAKE) -C AlarmManage clean
+	$(MAKE) -C MediaQueue clean
+	$(MAKE) -C HkSdkManage clean
+	$(MAKE) -C AttendanceManage clean

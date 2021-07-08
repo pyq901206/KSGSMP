@@ -1,0 +1,56 @@
+2010-10-9 9:40  , T41030
+
+libsmtp 的编译方式
+
+libsmtp 依赖开发库 libxyssl （注意， 编译libsmtp/libxyssl 的编译工具链要保持一致。）
+
+编译libsmtp前， 需要先编译/安装libxyssl, libxyssl在目录 ../libxyssl 中， 编译安装方式
+参考libxyssl中的readme
+
+
+1. 检查libxyssl 是否已经安装
+执行脚本 libxyssl/build/testxyssl.sh 可检查是否已经安装libxyssl,
+或者执行命令行
+cd build
+arm-hismall-linux-gcc testssl.c -lxyssl
+
+如果可以成功编译， 说明libxyssl已经作为库安装在系统的编译环境中。
+
+注意，该脚本中使用 arm-hismall-linux ， 可自行更改为其他的工具链，
+
+如果没有安装libxyssl到系统目录， 则需要手工拷贝xyssl的头文件，或者建立链接
+
+***如果已经安装libxyssl, 可以直接跳到步骤3
+
+2.libxyssl 依赖
+***如果已经安装libxyssl, 可以直接跳到步骤3
+cd libsmtp
+cd include
+ln -s ../../libxyssl/include/xyssl/ xyssl
+
+
+3.编译
+1)使用 arm-linux-uclibc- 工具链 (注意libxyssl也要使用相同工具链编译)
+  cd libsmtp
+  cd build/linux-v2.6-arm9-uclibc
+  make clean ;make
+  
+  编译后的库存放在 libsmtp/lib/linux-v2.6-arm9-uclibc
+ 
+2) 使用 arm-hismall-linux 工具链 (注意libxyssl也要使用相同工具链编译)
+  cd libsmtp
+  cd build/linux-v2.6-arm9-uclibc-hismall
+  make clean;make
+
+4.使用libsmtp
+头文件    ./include 
+lib文件   ./lib/linux-v2.6-arm9-uclibc
+               release  -- releas 库
+			   debug    -- debug 库
+	      或者
+          ./lib/linux-v2.6-arm9-uclibc-hismall/
+               release  -- releas 库
+			   debug    -- debug 库
+		  
+		  
+		  

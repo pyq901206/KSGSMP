@@ -1,0 +1,50 @@
+##########################
+#TOOLS ?= G7
+#TOOLS ? = K3
+TOOLS ?= x86
+#TOOLS ?= B3
+#TOOLS ?= J07
+###########################
+
+ifeq ($(TOOLS), G7)
+MVTOOL_PREFIX = arm-hisiv300-linux-
+LIBDIR = Out/Lib/hisi/3518ev200
+PLATFORM_DIR = 3518E
+endif
+
+ifeq ($(TOOLS), K3)
+MVTOOL_PREFIX = arm-hisiv300-linux-
+LIBDIR = Out/Lib/hisi/3518ev200
+PLATFORM_DIR = 3518E
+endif
+
+ifeq ($(TOOLS), J07)
+MVTOOL_PREFIX = arm-himix200-linux-
+LIBDIR = Out/Lib/hisi/3516dv300
+PLATFORM_DIR = 3516d
+endif
+
+ifeq ($(TOOLS), B3)
+MVTOOL_PREFIX = arm-hisiv500-linux-
+LIBDIR = Out/Lib/hisi/3516cv500
+PLATFORM_DIR = 3516c
+endif
+
+ifeq ($(TOOLS), x86)
+	LIBDIR = Out/Lib/x86
+	PLATFORM_DIR = Linux32
+	CROSS_COMPILE=
+endif	
+	
+INCLUDEDIR = Include
+CC = $(MVTOOL_PREFIX)gcc
+AS = $(MVTOOL_PREFIX)as
+LD = $(MVTOOL_PREFIX)ld
+CPP = $(MVTOOL_PREFIX)g++
+AR=$(MVTOOL_PREFIX)ar
+RANLIB=$(MVTOOL_PREFIX)ranlib
+NM = $(MVTOOL_PREFIX)nm
+STRIP = $(MVTOOL_PREFIX)strip
+OBJDUMP = $(MVTOOL_PREFIX)objdump
+CP =cp
+MV = mv
